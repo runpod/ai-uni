@@ -4,7 +4,7 @@
  * A utility for interacting with the RunPod REST API.
  */
 
-const API_BASE_URL = "https://rest.runpod.io/v1";
+import { RUNPOD_REST_API_BASE_URL } from "@/lib/constants";
 
 interface ApiResponse<T> {
 	success: boolean;
@@ -132,7 +132,7 @@ async function makeRequest<T>(
 		} else {
 			// Direct API call for production
 			// Build URL with query parameters
-			let url = `${API_BASE_URL}${endpoint}`;
+			let url = `${RUNPOD_REST_API_BASE_URL}${endpoint}`;
 			if (params && Object.keys(params).length > 0) {
 				const queryParams = new URLSearchParams();
 				Object.entries(params).forEach(([key, value]) => {

@@ -40,7 +40,7 @@ export const ACHIEVEMENTS = {
 		icon: "🚀",
 	},
 	DEPLOY_LLM: {
-		id: "deploy-llm",
+		id: "setup-llm",
 		title: "AI Architect",
 		description: "Deployed your first LLM as an API",
 		icon: "🧠",

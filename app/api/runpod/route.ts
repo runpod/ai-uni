@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const RUNPOD_API_BASE_URL = "https://rest.runpod.io/v1";
+import { RUNPOD_REST_API_BASE_URL } from "@/lib/constants";
 
 /**
  * Proxy handler for RunPod API requests
@@ -16,7 +15,7 @@ export async function POST(request: NextRequest) {
 		}
 
 		// Build URL with query parameters
-		let url = `${RUNPOD_API_BASE_URL}${endpoint}`;
+		let url = `${RUNPOD_REST_API_BASE_URL}${endpoint}`;
 		if (params && Object.keys(params).length > 0) {
 			const queryParams = new URLSearchParams();
 			Object.entries(params).forEach(([key, value]) => {

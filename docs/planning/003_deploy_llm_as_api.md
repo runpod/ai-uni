@@ -7,6 +7,10 @@ serverless API endpoint using RunPod's REST API. The tutorial will demonstrate h
 persistent storage for model weights, deploy a serverless endpoint with optimal configurations, and
 test the deployed model with streaming responses.
 
+This task is the second module in the learning path, coming directly after the "Getting Started"
+module. It will update the existing "setup-llm" page (`/app/setup-llm/page.tsx`) with comprehensive
+content to replace the current placeholder content.
+
 ## User Requirements
 
 - As a developer, I want to deploy an LLM without managing infrastructure
@@ -23,6 +27,14 @@ test the deployed model with streaming responses.
 - Store network volume ID and endpoint ID in localStorage for reuse
 - Implement streaming text responses from the deployed model
 - Ensure all components follow established design patterns and conventions
+
+## Page Implementation
+
+- Update the existing `/app/setup-llm/page.tsx` file, replacing the placeholder content
+- Maintain the same page structure with task completion tracking as in the "Getting Started" module
+- Ensure the navigation links correctly point to the previous (Getting Started) and next modules
+- Implement the same achievement tracking pattern using the `useAchievementStore`
+- Follow the established UI patterns for step cards, instructions, and interactive elements
 
 ## Detailed Steps
 
@@ -110,49 +122,49 @@ import { createOpenAI } from "@ai-sdk/openai";
  * @param seed Optional seed for reproducible results
  */
 export async function streamFromEndpoint(
-  prompt: string,
-  onChunk: (chunk: string) => void,
-  maxTokens: number = 1000,
-  seed: number = 42
+	prompt: string,
+	onChunk: (chunk: string) => void,
+	maxTokens: number = 1000,
+	seed: number = 42
 ): Promise<void> {
-  // Get API key and endpoint from localStorage
-  const apiKey = localStorage.getItem('runpod-api-key');
-  const endpointId = localStorage.getItem('llm-endpoint-id');
-  const baseURL = `https://api.runpod.ai/v2/${endpointId}/openai/v1`;
+	// Get API key and endpoint from localStorage
+	const apiKey = localStorage.getItem("runpod-api-key");
+	const endpointId = localStorage.getItem("llm-endpoint-id");
+	const baseURL = `https://api.runpod.ai/v2/${endpointId}/openai/v1`;
 
-  if (!apiKey || !endpointId) {
-    throw new Error("API key or endpoint ID not found in localStorage");
-  }
+	if (!apiKey || !endpointId) {
+		throw new Error("API key or endpoint ID not found in localStorage");
+	}
 
-  // Create OpenAI provider with our endpoint
-  const openai = createOpenAI({
-    apiKey: apiKey,
-    baseURL: baseURL,
-  });
+	// Create OpenAI provider with our endpoint
+	const openai = createOpenAI({
+		apiKey: apiKey,
+		baseURL: baseURL,
+	});
 
-  // Create the stream using the AI SDK
-  const result = await streamText({
-    model: openai("Qwen/Qwen2.5-7B-Instruct-AWQ"), // Using the model we deployed
-    messages: [
-      {
-        role: "user",
-        content: prompt,
-      },
-    ],
-    temperature: 0.1,
-    maxTokens,
-    seed,
-  });
+	// Create the stream using the AI SDK
+	const result = await streamText({
+		model: openai("Qwen/Qwen2.5-7B-Instruct-AWQ"), // Using the model we deployed
+		messages: [
+			{
+				role: "user",
+				content: prompt,
+			},
+		],
+		temperature: 0.1,
+		maxTokens,
+		seed,
+	});
 
-  try {
-    // Use textStream as an async iterable
-    for await (const textPart of result.textStream) {
-      onChunk(textPart);
-    }
-  } catch (error) {
-    console.error("Error processing AI SDK stream:", error);
-    throw error;
-  }
+	try {
+		// Use textStream as an async iterable
+		for await (const textPart of result.textStream) {
+			onChunk(textPart);
+		}
+	} catch (error) {
+		console.error("Error processing AI SDK stream:", error);
+		throw error;
+	}
 }
 
 // Example usage in a React component:
@@ -201,6 +213,7 @@ function ModelTester() {
   );
 }
 */
+```
 
 ## Data Persistence
 
@@ -218,4 +231,6 @@ function ModelTester() {
 - Error states are handled gracefully with helpful messages
 - All components follow established design patterns
 - Navigation between modules works correctly
-```
+- The module is properly integrated into the learning path sequence after "Getting Started"
+- The "Next" button is only highlighted after task completion
+- The page maintains consistent structure and styling with other tutorial pages
