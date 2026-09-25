@@ -4,13 +4,13 @@ AI Uni is a free, open-source university for learning how to build AI products w
 
 ## About
 
-AI Uni focuses on providing educational resources for developers to get started with AI for their projects. We guide users through every step of the process, with RunPod as the platform of choice.
+AI Uni focuses on providing educational resources for developers to get started with AI for their projects. We guide users through every step of the process, with Runpod as the platform of choice.
 
 ## Features
 
 - **Learning Modules**: Step-by-step guides for various AI development tasks
 - **Practical Examples**: Real-world code examples that you can use in your projects
-- **RunPod Integration**: Learn how to leverage RunPod's infrastructure for AI development
+- **Runpod Integration**: Learn how to leverage Runpod's infrastructure for AI development
 - **Accessible Interface**: Clean, intuitive UI with dark/light mode support
 
 ## Getting Started
@@ -28,8 +28,8 @@ AI Uni focuses on providing educational resources for developers to get started 
 
 ## Learning Modules
 
-- **Getting Started with RunPod**: Create an account, set up API keys, and configure your environment
-- **Deploying an LLM as API**: Set up vLLM as a serverless endpoint on RunPod
+- **Getting Started with Runpod**: Create an account, set up API keys, and configure your environment
+- **Deploying an LLM as API**: Set up vLLM as a serverless endpoint on Runpod
 - **Interacting with LLM API**: Make requests, stream text responses, and handle different formats
 
 ## Tech Stack
