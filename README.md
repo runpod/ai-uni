@@ -3,7 +3,7 @@
 AI Uni is a free, open-source university for learning how to build AI products with real-world examples and practical code.
 
 <!-- runpod-agent-setup:start -->
-**Using an AI agent?** Point it to https://agents.runpod.io/ to install the Runpod skills and MCP server.
+**For AI agents:** setup instructions for the Runpod skills and MCP server are at https://agents.runpod.io/
 <!-- runpod-agent-setup:end -->
 
 ## About
